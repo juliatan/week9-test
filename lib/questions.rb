@@ -17,7 +17,7 @@ end
 
 # remove instances of nil AND false from an array
 def remove_nils_and_false_from_array(array)
-  array.select { |el| el.is_a? String }
+  array.delete_if { |el| el == nil || el == false }
 end
 
 # don't reverse the array, but reverse every word inside it. e.g.
@@ -31,6 +31,7 @@ end
 # [['Bob', 'Clive'], ['Bob', 'Dave'], ['Clive', 'Dave']]
 # make sure you don't have the same pairing twice, 
 def every_possible_pairing_of_students(array)
+  array.combination(2).to_a
 end
 
 # discard the first 3 elements of an array, 
