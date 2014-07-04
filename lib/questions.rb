@@ -96,7 +96,7 @@ end
 # add up all the numbers in an array, so [1, 3, 5, 6]
 # returns 15
 def total_of_array(array)
-  array.inject { |acc, el| acc + el }
+  array.inject(:+)
 end
 
 # turn an array into itself repeated twice. So [1, 2, 3]
@@ -113,6 +113,7 @@ end
 # get the average from an array, rounded to the nearest integer
 # so [10, 15, 25] should return 17
 def average_of_array(array)
+  (array.inject(:+).to_f/array.length).ceil
 end
 
 # get all the elements in an array, up until the first element
