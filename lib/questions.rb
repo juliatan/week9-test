@@ -223,6 +223,11 @@ end
 
 # count the number of words in a file
 def word_count_a_file(file_path)
+  f = File.open(file_path, "r")
+  arr = []
+  f.each_line(" ") { |line| arr << line }
+  arr.count
+  # note each line actually gives a word in this case
 end
 
 # --- tougher ones ---
