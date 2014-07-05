@@ -286,6 +286,14 @@ end
 # go from 1 to 100
 # (there's no RSpec test for this one)
 def fizzbuzz_without_modulo
+  fizz    = [nil, nil, "Fizz"].cycle
+  buzz    = [nil, nil, nil, nil, "Buzz"].cycle
+  numbers = 1..100
+ 
+  numbers.zip(fizz, buzz) do |n, f, b|
+    fizzbuzz = [f, b].join
+    puts(fizzbuzz.empty? ? n : fizzbuzz)
+  end
 end
 
 # print the lyrics of the song 99 bottles of beer on the wall
