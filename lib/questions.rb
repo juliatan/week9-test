@@ -267,6 +267,19 @@ end
 # and 1 that is 4 letters long. Return it as a hash in the format
 # word_length => count, e.g. {2 => 1, 3 => 5, 4 => 1}
 def count_words_of_each_length_in_a_file(file_path)
+  f = File.open(file_path, "r")
+  words = f.read.split(/\W/)
+  hash = {}
+
+  words.each do |word|
+    if hash[word.length]
+      hash[word.length] += 1
+    else
+      hash[word.length] = 1
+    end
+  end
+  hash.delete(0)
+  return hash
 end
 
 # implement fizzbuzz without modulo, i.e. the % method
