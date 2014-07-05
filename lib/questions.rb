@@ -1,3 +1,5 @@
+require 'Date'
+
 # keep only the elements that start with an a
 def select_elements_starting_with_a(array)
   array.select { |el| el.start_with? 'a' }
@@ -252,6 +254,11 @@ end
 # the next year when your birthday will fall on a friday
 # e.g. january 1st, will next be a friday in 2016
 def your_birthday_is_on_a_friday_in_the_year(birthday)
+  # note had to require 'Date' library
+  birth_date = Date.parse(birthday.strftime('%Y-%m-%d'))
+  next_birthday = birth_date.next_year
+  next_birthday = next_birthday.next_year until next_birthday.friday?
+  return next_birthday.year
 end
 
 # in a file, total the number of times words of different lengths
