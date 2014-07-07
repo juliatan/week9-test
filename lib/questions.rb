@@ -239,6 +239,7 @@ end
 # the method foobar should be invoked
 def call_method_from_string(str_method)
   self.str_method
+  # or send(str_method)
 end
 
 # return true if the date is a uk bank holiday for 2014
@@ -270,6 +271,7 @@ def count_words_of_each_length_in_a_file(file_path)
   f = File.open(file_path, "r")
   words = f.read.split(/\W/)
   hash = {}
+  # using Hash.new(0) with a default value negates need for if statement below
 
   words.each do |word|
     if hash[word.length]
